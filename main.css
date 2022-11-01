@@ -1,0 +1,114 @@
+body {
+  --square-size: 60px;
+  --board-border: 3px;
+  --foreground: black;
+  --green: #0fb;
+  --red: #f08;
+  --evil: #ad8fda; /* 😈 */
+  font-family: "Crimson Pro", serif;
+  font-size: 1.1em;
+  color: var(--foreground);
+  margin: var(--square-size) var(--square-size);
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+body.dark {
+  background-color: black;
+  --foreground: white;
+}
+
+h1 {
+  font-family: "Alice", serif;
+  font-size: 2em;
+  text-decoration: underline var(--evil) 2px;
+}
+
+a {
+  color: inherit;
+}
+
+#lights {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+button {
+  appearance: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  border: 1px solid var(--foreground);
+  padding: 3px 8px;
+  color: inherit;
+  margin-right: 10px;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+button:disabled {
+  color: var(--evil);
+}
+
+summary {
+  outline: none;
+}
+
+#board {
+  margin-right: var(--square-size);
+  border: var(--board-border) solid var(--foreground);
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.square {
+  background-color: white;
+  border: 1px solid #bbb;
+  width: var(--square-size);
+  min-width: var(--square-size);
+  height: var(--square-size);
+  min-height: var(--square-size);
+  box-sizing: border-box;
+}
+
+.square.chosen {
+  /* A border thicker than the board's outer border moves the board a bit when the chosen square is changed... */
+  border: var(--board-border) solid var(--evil);
+  outline: 6px solid var(--evil);
+}
+
+.square.flipped {
+  background-color: black;
+}
+
+.indent {
+  padding-left: 10px;
+  border-left: 3px solid var(--foreground);
+}
+
+#strategy {
+  color: #666;
+}
+
+body.dark #strategy {
+  color: #aaa;
+}
+
+.right {
+  font-weight: bold;
+  color: var(--green);
+}
+
+.wrong {
+  font-weight: bold;
+  color: var(--red);
+}
+
+.current {
+  font-weight: bold;
+}
