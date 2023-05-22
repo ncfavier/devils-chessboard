@@ -29,6 +29,11 @@ a {
   color: inherit;
 }
 
+#github {
+  font-size: 0.6em;
+  padding-left: 1em;
+}
+
 #lights {
   position: absolute;
   top: 20px;

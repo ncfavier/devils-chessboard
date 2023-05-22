@@ -1,4 +1,4 @@
-import { h, text, app } from "https://cdn.jsdelivr.net/npm/hyperapp@2";
+import { h, text, app } from "https://cdnjs.cloudflare.com/ajax/libs/hyperapp/2.0.22/index.min.js";
 
 const [SET_UP_BOARD, FLIP_COIN, FIND_SQUARE, DONE] = Array(4).keys();
 
@@ -102,7 +102,10 @@ const view = state => h('body', {class: {dark: state.dark}}, [
     ))
   )),
   h('aside', {}, [
-    h('h1', {}, text("The Devil's chessboard")),
+    h('h1', {}, [
+      text("The Devil's chessboard"),
+      h('a', {id: 'github', href: "https://git.monade.li/devils-chessboard"}, h('i', {class: 'fa-brands fa-github'}, []))
+    ]),
     h('details', {}, [
       h('summary', {}, text("Rules")),
       h('div', {class: 'indent'}, [
@@ -151,7 +154,7 @@ const view = state => h('body', {class: {dark: state.dark}}, [
       h('summary', {}, text("Alice's strategy (spoilers)")),
       text("For each region in {efgh, cdgh, bdfh, 5678, 3478, 2468} (where a1 = top left), an odd number of dark squares means the chosen square is in that region.")
     ]) // END SPOILERS
-  ])
+  ]),
 ]);
 
 app({
